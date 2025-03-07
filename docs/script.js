@@ -8,7 +8,12 @@ document.getElementById("signup-form").addEventListener("submit", function (even
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            document.getElementById("message").innerText = "Sign-up successful!";
+            document.getElementById("message").innerText = "Sign-up successful! Redirecting...";
+            
+            // Redirect to homepage after 2 seconds
+            setTimeout(() => {
+                window.location.href = "index.html"; // Change to your homepage filename
+            }, 2000);
         })
         .catch((error) => {
             document.getElementById("message").innerText = error.message;
